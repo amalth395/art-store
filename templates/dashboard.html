@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ArchivexStudio</title>
+
+<!-- GOOGLE FONTS -->
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- ICONS -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* 🌊 SEA SHORE BACKGROUND */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #0a2a43, #0f4c75, #3282b8, #bbe1fa);
+    background-attachment: fixed;
+    color: #ffffff;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    backdrop-filter: blur(10px);
+    background: rgba(0,0,0,0.3);
+}
+
+.navbar h2 {
+    font-family: 'Playfair Display', serif;
+    color: #00d4ff;
+}
+
+/* NAV LINKS */
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #eee;
+    margin-left: 25px;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #00d4ff;
+    transform: translateY(-2px);
+}
+
+.nav-links i {
+    font-size: 14px;
+}
+
+/* LOGOUT */
+.logout-btn {
+    background: linear-gradient(45deg, #ff4d4d, #ff1a1a);
+    padding: 8px 16px;
+    border-radius: 20px;
+    color: white !important;
+}
+
+/* HERO */
+.container {
+    text-align: center;
+    padding: 40px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+}
+
+.subtitle {
+    color: #e0f7ff;
+}
+
+/* PRODUCTS GRID */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* CARD */
+.card {
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 20px;
+    padding: 20px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 20px rgba(0, 200, 255, 0.2);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px rgba(0, 200, 255, 0.5);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.price {
+    color: #00e5ff;
+    font-weight: bold;
+}
+
+.desc {
+    color: #cdefff;
+}
+
+/* BUTTONS */
+.btn {
+    margin-top: 10px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* CART BUTTON */
+.cart-btn {
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    color: white;
+}
+
+.cart-btn:hover {
+    box-shadow: 0 0 15px rgba(0,200,255,0.7);
+}
+
+/* BUY BUTTON */
+.buy-btn {
+    background: transparent;
+    border: 1px solid #00e5ff;
+    color: #00e5ff;
+}
+
+.buy-btn:hover {
+    background: #00e5ff;
+    color: black;
+}
+.cart-link {
+    position: relative;
+}
+
+.badge {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    background: #00e5ff;
+    color: black;
+    font-size: 10px;
+    padding: 4px 6px;
+    border-radius: 50%;
+    font-weight: bold;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+    <h2>ArchivexStudio</h2>
+
+
+<div class="nav-links">
+    <a href="/dashboard"><i class="fas fa-home"></i> Home</a>
+    <a href="#"><i class="fas fa-image"></i> Gallery</a>
+    <a href="/my_orders"><i class="fas fa-box"></i> My Orders</a>
+    <a href="/cart" class="cart-link">
+    <i class="fas fa-shopping-cart"></i> Cart
+
+    {% if session.get('cart') %}
+        <span class="badge">{{ session['cart']|length }}</span>
+    {% endif %}
+</a>
+    {% if username == 'admin' %}
+    <a href="/admin"><i class="fas fa-user-shield"></i> Admin</a>
+    {% endif %}
+
+    <a href="/logout" class="logout-btn">
+        <i class="fas fa-sign-out-alt"></i> Logout
+    </a>
+</div>
+
+
+</div>
+
+<!-- HERO -->
+
+<div class="container">
+    <h1>Welcome, {{ username }} ✨</h1>
+    <p class="subtitle">Curated Acrylic Art Collection 🎨</p>
+
+<div class="products">
+
+    <!-- PRODUCT 1 -->
+    <div class="card">
+    <img src="{{ url_for('static', filename='images/midnight.jpeg') }}">
+    <h3>Midnight Guardian</h3>
+    <p class="price">₹8,500</p>
+    <p class="desc">Hand-painted acrylic portrait</p>
+
+   
+<a href="/add_to_cart/midnight">
+    <button class="btn cart-btn">
+        Add to Cart
+    </button>
+</a>
+
+    <a href="/buy/dog">
+        <button class="btn buy-btn">
+            <i class="fas fa-bolt"></i> Buy Now
+        </button>
+    </a>
+</div>
+
+    <!-- PRODUCT 2 -->
+    <div class="card">
+        <img src="{{ url_for('static', filename='images/angel.jpeg') }}">
+        <h3>Eclipse of Grace</h3>
+        <p class="price">₹7,500</p>
+
+        <a href="/add_to_cart/nature">
+            <button class="btn cart-btn">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+            </button>
+        </a>
+
+        <a href="/buy/nature">
+            <button class="btn buy-btn">
+                <i class="fas fa-bolt"></i> Buy Now
+            </button>
+        </a>
+    </div>
+
+</div>
+
+
+</div>
+
+</body>
+</html>

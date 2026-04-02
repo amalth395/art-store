@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Success</title>
+    <style>
+        body {
+            background: #000;
+            color: white;
+            font-family: Poppins;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        .box {
+            background: #111;
+            padding: 40px;
+            border-radius: 20px;
+            width: 400px;
+            margin: auto;
+            box-shadow: 0 0 20px rgba(0,255,255,0.2);
+        }
+
+        h1 {
+            color: #00e6e6;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #00e6e6;
+            color: black;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h1>✅ Order Placed!</h1>
+    <p>Your order for <b>{{ item }}</b> has been received.</p>
+    <p>We will contact you soon 🚚</p>
+
+    <a href="/dashboard">Go Back</a>
+</div>
+
+</body>
+</html>

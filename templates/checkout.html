@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Checkout</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #1a0000, #000000);
+    color: white;
+}
+
+/* MAIN BOX */
+.container {
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 30px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,0,0,0.2);
+}
+
+/* TITLE */
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* LABELS */
+label {
+    font-size: 14px;
+    color: #bbb;
+}
+
+/* INPUTS */
+input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(45deg, #ff0000, #ff4d4d);
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🧾 Checkout</h1>
+
+<form method="POST">
+
+<label>Full Name</label>
+<input type="text" name="name" placeholder="Enter your name" required>
+
+<label>Phone Number</label>
+<input type="text" name="phone" placeholder="Enter phone number" required>
+
+<label>Delivery Address</label>
+<textarea name="address" placeholder="Enter full address" required></textarea>
+
+<label>Payment Method</label>
+<select name="payment" required>
+    <option value="">Select Payment Method</option>
+    <option value="cod">Cash on Delivery</option>
+    <option value="upi">UPI (GPay / PhonePe)</option>
+    <option value="card">Debit / Credit Card</option>
+</select>
+
+<button type="submit">Place Order</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

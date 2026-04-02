@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ArchivexStudio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at top, #1a0000, #000000);
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    overflow: hidden;
+}
+
+/* 🍒 CHERRY FLOAT */
+.cherry span {
+    position: absolute;
+    font-size: 26px;
+    animation: fall linear infinite;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 6px rgba(255, 0, 0, 0.6));
+}
+
+.cherry span:nth-child(1) { left: 5%; animation-duration: 10s; }
+.cherry span:nth-child(2) { left: 20%; animation-duration: 12s; }
+.cherry span:nth-child(3) { left: 35%; animation-duration: 9s; }
+.cherry span:nth-child(4) { left: 50%; animation-duration: 11s; }
+.cherry span:nth-child(5) { left: 65%; animation-duration: 10s; }
+.cherry span:nth-child(6) { left: 80%; animation-duration: 13s; }
+.cherry span:nth-child(7) { left: 90%; animation-duration: 9s; }
+
+@keyframes fall {
+    0% { top: -10%; transform: translateX(0) rotate(0deg); opacity: 0; }
+    20% { opacity: 1; }
+    100% { top: 110%; transform: translateX(60px) rotate(360deg); opacity: 0; }
+}
+
+/* MAIN BOX */
+.box {
+    position: relative;
+    background: rgba(255,255,255,0.05);
+    padding: 50px;
+    border-radius: 20px;
+    text-align: center;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,0,0,0.2);
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* ✨ SHINE EFFECT */
+.box::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.1), transparent);
+    transform: rotate(25deg);
+    animation: shine 6s infinite;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) rotate(25deg); }
+    100% { transform: translateX(100%) rotate(25deg); }
+}
+
+.box:hover {
+    box-shadow: 0 0 30px rgba(255,0,0,0.5);
+}
+
+/* LOGO */
+.logo {
+    font-size: 2.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* SMALL BRAND TEXT */
+.brand {
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+/* TAGLINE */
+p {
+    color: #aaa;
+    font-size: 0.95rem;
+    margin: 20px 0;
+}
+
+/* BUTTONS */
+a {
+    display: inline-block;
+    margin: 8px;
+    padding: 10px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.login {
+    background: linear-gradient(45deg, #ff0000, #ff4d4d);
+    color: white;
+}
+
+.signup {
+    background: white;
+    color: black;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- 🍒 FLOAT -->
+
+<div class="cherry">
+    <span>🍒</span>
+    <span>🍒</span>
+    <span>🍒</span>
+    <span>🍒</span>
+    <span>🍒</span>
+    <span>🍒</span>
+    <span>🍒</span>
+</div>
+
+<!-- MAIN -->
+
+<div class="box">
+
+
+<!-- LOGO -->
+<div class="logo">
+     <span class="brand">archivexstudio</span>
+</div>
+
+<p>Where creativity meets canvas</p>
+
+<a href="/login" class="login">Login</a>
+<a href="/signin" class="signup">Signup</a>
+```
+
+</div>
+
+</body>
+</html>
+
+
